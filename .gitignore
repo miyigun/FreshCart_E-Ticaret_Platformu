@@ -1,12 +1,8 @@
-# Byte-compiled / optimized / DLL files
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -20,70 +16,72 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a script, but they need to be ignored
-#  when used in revendoring projects.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Environments
-.env
-.venv
-env/
+# Virtual Environment
 venv/
+env/
 ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
+.venv
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb_checkpoints/
 
-# Data files - Projenin gereksinimlerine göre bu satırları yorumdan çıkarabilir veya değiştirebilirsiniz
-# data/
-# *.csv
-# *.xlsx
-# *.parquet
+# Data files (large files)
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/*.csv
+data/processed/*.parquet
+data/external/*
+*.zip
+*.tar.gz
 
-# Models - Eğitilmiş büyük model dosyalarını takip etmemek için
-# models/
-# *.pkl
-# *.joblib
-# *.h5
+# Models (large files)
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pb
+models/*.onnx
 
-# IDE settings
+# Logs
+logs/*.log
+*.log
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Keep empty directories
+!.gitkeep

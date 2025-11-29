@@ -2,7 +2,7 @@
 
 ## 🌐 Demo
 
-**🔗 Live Demo:** [Click to Launch App 🚀](https://freshcarte-ticaretplatformu-kanxyvljs8xgbfxnxkahym.streamlit.app/)
+**🔗 Live Demo:** [Click to Launch App 🚀](https://freshcarte-churn-prediction-kanxyvljs8xgbfxnxkahym.streamlit.app/)
 
 > **Zero2End Machine Learning Bootcamp - Final Project**
 > 

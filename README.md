@@ -94,20 +94,20 @@ After rigorous testing and optimization, the final **LightGBM** model was tuned 
 ### 📈 Model Performance
 | Metric | Score | Interpretation |
 | :--- | :---: | :--- |
-| **ROC-AUC** | **0.76** | Good capability to distinguish between churners and active users. |
-| **Recall** | **85%** | **Critical Metric:** We successfully capture **4 out of 5** potential churners. |
-| **Precision** | **43%** | We accept a broader targeting strategy to minimize missed churners (False Negatives). |
+| **ROC-AUC** | **0.7649** | Good capability to distinguish between churners and active users. |
+| **Recall** | **88%** | **Critical Metric:** We successfully capture **4 out of 5** potential churners. |
+| **Precision** | **44%** | We accept a broader targeting strategy to minimize missed churners (False Negatives). |
 | **F1-Score** | **0.58** | Reflects the strategic trade-off between Precision and Recall. |
 
-> **Strategy Note:** In churn prediction, a **False Negative** (missing a customer who leaves) is much costlier than a **False Positive** (giving a discount to a happy customer). Therefore, we optimized the decision threshold to maximize **Recall (81%)**.
+> **Strategy Note:** In churn prediction, a **False Negative** (missing a customer who leaves) is much costlier than a **False Positive** (giving a discount to a happy customer). Therefore, we optimized the decision threshold to maximize **Recall (88%)**.
 
 ### 💰 ROI Analysis
 By optimizing the decision threshold (instead of default 0.5), we maximized the expected profit.
 
-* **Revenue Saved (Projected):** ~$1,850,000 / year
+* **Revenue Saved (Projected):** ~$1,915,000 / year
 * **Campaign Cost:** ~$150,000 / year
-* **Net Profit:** **~$1.7M / year**
-* **ROI:** **~1100%**
+* **Net Profit:** **~$1.77M / year**
+* **ROI:** **~1177%**
 
 ---
 

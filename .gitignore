@@ -49,6 +49,7 @@ models/*
 !models/best_params.json
 !models/final_metrics.json
 !models/feature_names.json
+!models/optimal_threshold.json
 models/*.joblib
 models/*.h5
 models/*.pb

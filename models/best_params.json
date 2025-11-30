@@ -1,17 +1,17 @@
 {
-    "num_leaves": 99,
-    "learning_rate": 0.013240594698760886,
-    "feature_fraction": 0.5537578609623266,
-    "bagging_fraction": 0.870057280563604,
-    "bagging_freq": 5,
-    "min_child_samples": 76,
+    "num_leaves": 96,
+    "learning_rate": 0.01216490601655237,
+    "feature_fraction": 0.5497423403447013,
+    "bagging_fraction": 0.9480190587530017,
+    "bagging_freq": 2,
+    "min_child_samples": 100,
     "max_depth": 11,
-    "lambda_l1": 0.0007320188432731127,
-    "lambda_l2": 0.01792518636241467,
+    "lambda_l1": 0.4865356258966226,
+    "lambda_l2": 0.2859025576109937,
     "objective": "binary",
     "metric": "auc",
     "boosting_type": "gbdt",
     "verbose": -1,
     "random_state": 42,
-    "is_unbalance": true
+    "scale_pos_weight": 2.2635066964727293
 }

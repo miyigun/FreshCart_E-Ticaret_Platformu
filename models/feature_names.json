@@ -41,7 +41,6 @@
     "loyalty_index",
     "at_risk_score",
     "purchase_velocity",
-    "order_count_trend",
     "basket_size_trend",
     "order_frequency_trend",
     "recency_acceleration",

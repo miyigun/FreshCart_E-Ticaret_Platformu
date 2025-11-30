@@ -109,32 +109,66 @@ By optimizing the decision threshold (instead of default 0.5), we maximized the 
 * **Net Profit:** **~$1.77M / year**
 * **ROI:** **~1177%**
 
+### 📊 Model Evolution (Baseline vs Final)
+We started with a simple Logistic Regression model and iteratively improved performance through feature engineering and advanced algorithms.
+
+| Model Strategy | Algorithm | F1-Score | ROC-AUC | Improvement |
+| :--- | :--- | :---: | :---: | :--- |
+| **Baseline** | Logistic Regression | 0.45 | 0.68 | - |
+| **V2 (Feature Eng.)** | XGBoost | 0.52 | 0.72 | +15% |
+| **Final (Tuned)** | **LightGBM** | **0.58** | **0.76** | **+28% vs Baseline** |
+
+> **Key Takeaway:** Feature engineering (especially behavioral trends) provided the biggest uplift in model performance.
+
 ---
 
 ## 📂 Project Structure
 
 ```bash
 FreshCart-Churn-Prediction/
-├── data/                   # Raw and processed data (not included in git)
-├── models/                 # Trained model files (pkl, json)
+├── .python-version
+├── .gitignore
+├── LICENCE
+├── README.md               # Project documentation
+├── requirements.txt        # Python dependencies
+├── app.py                  # Streamlit Dashboard application
+├── data/
+│   ├── external/
+│   ├── processed/          # Feature stores & monitoring logs
+│   │   ├── feature_metadata.json
+│   │   ├── final_features_advanced.parquet
+│   │   ├── model_features.json
+│   │   └── monitoring.db
+│   └── raw/                # Original immutable data
+├── docs/                   # Reports and presentations
+│   ├── baseline_results.json
+│   ├── evaluation_report.md
+│   └── FreshCart_Executive_Presentation.pptx
+├── logs/                   # System logs
+├── models/                 # Trained models & artifacts
+│   ├── baseline_*.pkl      # Baseline models (Logistic Reg, Random Forest)
+│   ├── best_params.json    # Optimized hyperparameters
+│   ├── feature_importance.csv
+│   ├── feature_names.json
+│   ├── final_metrics.json
+│   └── final_model_optimized.pkl
 ├── notebooks/              # Jupyter notebooks for experimentation
 │   ├── 01_EDA.ipynb
 │   ├── 02_baseline.ipynb
 │   ├── 03_feature_engineering.ipynb
 │   ├── 04_model_optimization.ipynb
-│   └── 05_model_evaluation.ipynb
-├── plots/                  # Generated charts for reporting (png)
-├── src/                    # Source code modules
-│   ├── data/               # Data loading scripts
-│   │   ├── churn_labels.py
-│   │   └── data_loader.py
-│   ├── features/           # Feature engineering scripts
-│   │   ├── behavioral_features.py
-│   │   └── rfm_features.py
-│   └── config.py           # Configuration settings
-├── app.py                  # Streamlit Dashboard application
-├── README.md               # Project documentation
-└── requirements.txt        # Python dependencies
+│   ├── 05_model_evaluation.ipynb
+│   └── 06_final_pipeline.ipynb
+├── plots/                  # Generated charts for reporting
+└── src/                    # Source code modules
+    ├── config.py           # Configuration settings
+    ├── data/               # Data loading scripts
+    │   ├── churn_labels.py
+    │   └── data_loader.py
+    └── features/           # Feature engineering scripts
+        ├── behavioral_features.py
+        └── rfm_features.py
+
 ```
 
 ---
@@ -180,44 +214,31 @@ kaggle competitions download -c instacart-market-basket-analysis
 # Or manually place it in the data/raw/ directory
 ```
 
-### Step 5: Prepare features
+### Step 5: Run the Full Pipeline
+To process data, generate features, and train the model, run the final pipeline notebook:
 
 ```bash
-python scripts/prepare_features.py
+# Run the final pipeline notebook to generate artifacts
+jupyter notebook notebooks/06_final_pipeline.ipynb
 ```
 
 ---
 
 ## 💻 Usage
 
-### 1. Model Training
-
+### 1. Run the Pipeline
+To execute the full workflow:
 ```bash
-python src/pipeline.py
-```
+jupyter notebook notebooks/06_final_pipeline.ipynb
 
-### 2. Getting Predictions (Inference)
-
-```bash
-python src/inference.py --user_id 123456
-```
-
-### 3. Running the Web Application
+### 2. Running the Web Application
 
 ```bash
 # Streamlit
-streamlit run app/streamlit_app.py
-
-# Or FastAPI
-uvicorn app.app:app --reload
+streamlit run app.py
 ```
 
 ---
-
-## 🌐 Demo
-
-**🔗 Live Demo:** 
-<!-- [freshcart-churn-prediction.streamlit.app](YOUR_DEPLOYMENT_LINK) -->
 
 ## 📸 Screenshots & Visuals
 ### 1. Model Performance (ROC & Precision-Recall Curves)
@@ -278,6 +299,10 @@ We engineered **100+ features**:
     - Order frequency trend
     - Seasonality patterns
     - Moving averages
+
+**What Worked Best?**
+- **Time-Series Trends:** Calculating the slope of order frequency (is the customer ordering less frequently over time?) was the most predictive feature.
+- **Behavioral Ratios:** `orders_per_week` proved more valuable than raw counts.
 
 ### Model Selection
 
